@@ -1,5 +1,7 @@
-<script setup lang="ts">
-defineProps<{ userId?: number }>()
+<script setup>
+defineProps({
+  userId: { type: Number, default: null }
+})
 </script>
 
 <template>

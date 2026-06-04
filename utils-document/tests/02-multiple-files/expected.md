@@ -8,8 +8,8 @@
 
 **说明：** 验证邮箱格式是否合法
 
-```ts
-function isEmail(email: string): boolean
+```js
+function isEmail(email)
 ```
 
 **参数：**
@@ -22,7 +22,7 @@ function isEmail(email: string): boolean
 
 **示例：**
 
-```ts
+```js
 import { isEmail } from '@/utils/validate/email'
 
 isEmail('test@example.com')
@@ -40,8 +40,8 @@ isEmail('invalid-email')
 
 **说明：** 验证手机号格式是否合法（中国大陆）
 
-```ts
-function isPhone(phone: string): boolean
+```js
+function isPhone(phone)
 ```
 
 **参数：**
@@ -54,7 +54,7 @@ function isPhone(phone: string): boolean
 
 **示例：**
 
-```ts
+```js
 import { isPhone } from '@/utils/validate/phone'
 
 isPhone('13812345678')
@@ -65,8 +65,8 @@ isPhone('13812345678')
 
 **说明：** 检测值是否为空（null、undefined、空字符串、空数组）
 
-```ts
-function isEmpty(value: unknown): boolean
+```js
+function isEmpty(value)
 ```
 
 **参数：**
@@ -79,7 +79,7 @@ function isEmpty(value: unknown): boolean
 
 **示例：**
 
-```ts
+```js
 import { isEmpty } from '@/utils/validate/phone'
 
 isEmpty('')

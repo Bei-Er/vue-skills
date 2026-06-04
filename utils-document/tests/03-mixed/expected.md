@@ -8,8 +8,8 @@
 
 **说明：** 将嵌套数组拍平为一维数组
 
-```ts
-function flatten<T>(arr: (T | T[])[]): T[]
+```js
+function flatten(arr)
 ```
 
 **参数：**
@@ -22,7 +22,7 @@ function flatten<T>(arr: (T | T[])[]): T[]
 
 **示例：**
 
-```ts
+```js
 import { flatten } from '@/utils/array'
 
 flatten([1, [2, 3], [4, [5]]])
@@ -33,8 +33,8 @@ flatten([1, [2, 3], [4, [5]]])
 
 **说明：** 根据条件过滤数组并返回匹配的元素
 
-```ts
-function filterBy<T>(list: T[], predicate: (item: T) => boolean): T[]
+```js
+function filterBy(list, predicate)
 ```
 
 **参数：**
@@ -48,7 +48,7 @@ function filterBy<T>(list: T[], predicate: (item: T) => boolean): T[]
 
 **示例：**
 
-```ts
+```js
 import { filterBy } from '@/utils/array'
 
 filterBy([1, 2, 3, 4], (n) => n > 2)
@@ -59,8 +59,8 @@ filterBy([1, 2, 3, 4], (n) => n > 2)
 
 **说明：** 数组去重
 
-```ts
-function unique<T>(arr: T[]): T[]
+```js
+function unique(arr)
 ```
 
 **参数：**
@@ -73,7 +73,7 @@ function unique<T>(arr: T[]): T[]
 
 **示例：**
 
-```ts
+```js
 import { unique } from '@/utils/array'
 
 unique([1, 2, 2, 3, 3])
@@ -88,8 +88,8 @@ unique([1, 2, 2, 3, 3])
 
 **说明：** 将数组按指定大小分块
 
-```ts
-function chunk<T>(arr: T[], size: number): T[][]
+```js
+function chunk(arr, size)
 ```
 
 **参数：**
@@ -103,7 +103,7 @@ function chunk<T>(arr: T[], size: number): T[][]
 
 **示例：**
 
-```ts
+```js
 import { chunk } from '@/utils/array/helpers'
 
 chunk([1, 2, 3, 4, 5], 2)

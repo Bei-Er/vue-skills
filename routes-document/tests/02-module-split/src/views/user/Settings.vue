@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 defineProps({
   id: { type: String, required: true },
   theme: { type: String, default: 'light' }

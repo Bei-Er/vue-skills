@@ -1,5 +1,7 @@
-<script setup lang="ts">
-defineProps<{ redirect?: string }>()
+<script setup>
+defineProps({
+  redirect: { type: String, default: '' }
+})
 </script>
 
 <template>

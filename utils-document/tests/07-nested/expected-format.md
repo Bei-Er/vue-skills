@@ -6,8 +6,8 @@
 
 **说明：** 将日期格式化为中文格式
 
-```ts
-function toChineseDate(date: Date): string
+```js
+function toChineseDate(date)
 ```
 
 **参数：**
@@ -20,7 +20,7 @@ function toChineseDate(date: Date): string
 
 **示例：**
 
-```ts
+```js
 import { toChineseDate } from '@/utils/date/format'
 
 toChineseDate(new Date(2024, 0, 15))
@@ -33,8 +33,8 @@ toChineseDate(new Date(2024, 0, 15))
 
 **说明：** 判断是否为今天
 
-```ts
-function isToday(date: Date): boolean
+```js
+function isToday(date)
 ```
 
 **参数：**
@@ -47,7 +47,7 @@ function isToday(date: Date): boolean
 
 **示例：**
 
-```ts
+```js
 import { isToday } from '@/utils/date/format'
 
 isToday(new Date())

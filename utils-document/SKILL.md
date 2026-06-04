@@ -35,20 +35,20 @@ description: 当需要为 Vue 项目的 utils 工具方法目录生成 README.md
 ```
 src/utils/
 ├── format/
-│   ├── index.ts
-│   ├── date.ts
-│   ├── number.ts
+│   ├── index.js
+│   ├── date.js
+│   ├── number.js
 │   └── README.md    ← 为该文件夹生成
 ├── validate/
-│   ├── index.ts
-│   ├── email.ts
-│   ├── phone.ts
+│   ├── index.js
+│   ├── email.js
+│   ├── phone.js
 │   └── README.md    ← 为该文件夹生成
-└── common.ts        ← 散落在根目录的单文件，忽略
+└── common.js        ← 散落在根目录的单文件，忽略
 ```
 
 **规则：**
-- 每个子文件夹 → 扫描所有 `.ts`、`.js`、`.mts` 文件中的导出，为其生成 README.md
+- 每个子文件夹 → 扫描所有 `.js`、`.mjs`、`.ts`、`.mts` 文件中的导出，为其生成 README.md
 - utils 根目录下的散落单文件 → 忽略，不生成文档
 
 ### 第 4 步：扫描源文件
@@ -103,8 +103,8 @@ src/utils/
 
 **说明：** 一句话描述函数的作用
 
-```ts
-function functionName1(param1: string, param2?: number): boolean
+```js
+function functionName1(param1, param2)
 ```
 
 **参数：**
@@ -118,7 +118,7 @@ function functionName1(param1: string, param2?: number): boolean
 
 **示例：**
 
-```ts
+```js
 import { functionName1 } from '@/utils/format'
 
 const result = functionName1('hello', 42)
@@ -134,10 +134,10 @@ const result = functionName1('hello', 42)
 |------|----------|
 | 重新导出（`export { foo } from './bar'`） | 追溯到原始文件，只文档化一次 |
 | 函数重载 | 分别文档化每个重载签名 |
-| 泛型函数（`function foo<T>`） | 保留泛型类型参数 |
+| 泛型函数（`function foo<T>`） | TS 文件保留泛型类型参数，JS 文件忽略泛型 |
 | 类导出 | 只文档化公共方法 |
 | 纯类型导出（`export type`） | 跳过，只文档化运行时值 |
-| 桶文件（`index.ts`） | 与其他文件同等对待，扫描其中的导出 |
+| 桶文件（`index.js`、`index.ts`） | 与其他文件同等对待，扫描其中的导出 |
 | 完全没有 JSDoc | 从函数体逻辑、命名、return 语句推断 |
 | JS 文件无类型注解 | 优先从 JSDoc `@param {Type}` 提取，都没有则类型显示 `-` |
 

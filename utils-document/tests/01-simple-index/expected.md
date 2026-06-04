@@ -6,8 +6,8 @@
 
 **说明：** 将日期格式化为指定格式的字符串
 
-```ts
-function formatDate(date: Date, format?: string): string
+```js
+function formatDate(date, format = 'YYYY-MM-DD')
 ```
 
 **参数：**
@@ -21,7 +21,7 @@ function formatDate(date: Date, format?: string): string
 
 **示例：**
 
-```ts
+```js
 import { formatDate } from '@/utils/format'
 
 formatDate(new Date(2024, 0, 15), 'YYYY/MM/DD')
@@ -34,8 +34,8 @@ formatDate(new Date(2024, 0, 15), 'YYYY/MM/DD')
 
 **说明：** 将数字格式化为千分位分隔的字符串
 
-```ts
-function formatNumber(value: number, separator?: string): string
+```js
+function formatNumber(value, separator = ',')
 ```
 
 **参数：**
@@ -49,7 +49,7 @@ function formatNumber(value: number, separator?: string): string
 
 **示例：**
 
-```ts
+```js
 import { formatNumber } from '@/utils/format'
 
 formatNumber(1234567.89)
@@ -65,8 +65,8 @@ formatNumber(1234567, ' ')
 
 **说明：** 生成指定范围内的随机整数
 
-```ts
-function randomInt(min: number, max: number): number
+```js
+function randomInt(min, max)
 ```
 
 **参数：**
@@ -80,7 +80,7 @@ function randomInt(min: number, max: number): number
 
 **示例：**
 
-```ts
+```js
 import { randomInt } from '@/utils/format'
 
 randomInt(1, 100)

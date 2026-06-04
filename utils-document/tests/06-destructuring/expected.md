@@ -6,8 +6,8 @@
 
 **说明：** 生成 CSS 尺寸字符串
 
-```ts
-function toSize({ width, height, unit }: SizeOptions): string
+```js
+function toSize({ width, height, unit = 'px' })
 ```
 
 **参数：**
@@ -22,7 +22,7 @@ function toSize({ width, height, unit }: SizeOptions): string
 
 **示例：**
 
-```ts
+```js
 import { toSize } from '@/utils/style'
 
 toSize({ width: 100, height: 200, unit: 'px' })
@@ -35,8 +35,8 @@ toSize({ width: 100, height: 200, unit: 'px' })
 
 **说明：** 将 RGB 值转为十六进制颜色
 
-```ts
-function rgbToHex(r: number, g: number, b: number): string
+```js
+function rgbToHex(r, g, b)
 ```
 
 **参数：**
@@ -51,7 +51,7 @@ function rgbToHex(r: number, g: number, b: number): string
 
 **示例：**
 
-```ts
+```js
 import { rgbToHex } from '@/utils/style'
 
 rgbToHex(255, 128, 0)
@@ -64,8 +64,8 @@ rgbToHex(255, 128, 0)
 
 **说明：** 为元素添加 CSS 类名
 
-```ts
-const addClass: (el: HTMLElement, ...classNames: string[]) => void
+```js
+const addClass = (el, ...classNames) => {}
 ```
 
 **参数：**
@@ -79,7 +79,7 @@ const addClass: (el: HTMLElement, ...classNames: string[]) => void
 
 **示例：**
 
-```ts
+```js
 import { addClass } from '@/utils/style'
 
 addClass(document.body, 'dark', 'no-scroll')
@@ -91,8 +91,8 @@ addClass(document.body, 'dark', 'no-scroll')
 
 **说明：** 移除元素的 CSS 类名
 
-```ts
-const removeClass: (el: HTMLElement, ...classNames: string[]) => void
+```js
+const removeClass = (el, ...classNames) => {}
 ```
 
 **参数：**
@@ -106,7 +106,7 @@ const removeClass: (el: HTMLElement, ...classNames: string[]) => void
 
 **示例：**
 
-```ts
+```js
 import { removeClass } from '@/utils/style'
 
 removeClass(document.body, 'dark', 'no-scroll')

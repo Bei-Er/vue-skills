@@ -6,8 +6,8 @@
 
 **说明：** 带超时的 fetch 请求
 
-```ts
-async function fetchWithTimeout(url: string, options?: RequestInit, timeout?: number): Promise<Response>
+```js
+async function fetchWithTimeout(url, options, timeout = 10000)
 ```
 
 **参数：**
@@ -22,7 +22,7 @@ async function fetchWithTimeout(url: string, options?: RequestInit, timeout?: nu
 
 **示例：**
 
-```ts
+```js
 import { fetchWithTimeout } from '@/utils/request'
 
 const data = await fetchWithTimeout('/api/user', { method: 'GET' }, 5000)
@@ -34,8 +34,8 @@ const data = await fetchWithTimeout('/api/user', { method: 'GET' }, 5000)
 
 **说明：** 解析响应为 JSON
 
-```ts
-const parseJSON: <T = unknown>(response: Response) => Promise<T>
+```js
+const parseJSON = async (response) => {}
 ```
 
 **参数：**
@@ -48,7 +48,7 @@ const parseJSON: <T = unknown>(response: Response) => Promise<T>
 
 **示例：**
 
-```ts
+```js
 import { parseJSON } from '@/utils/request'
 
 const res = await fetchWithTimeout('/api/user')
@@ -61,8 +61,8 @@ const data = await parseJSON<User>(res)
 
 **说明：** 重试请求
 
-```ts
-async function retry<T>(fn: () => Promise<T>, retries?: number, delay?: number): Promise<T>
+```js
+async function retry(fn, retries = 3, delay = 1000)
 ```
 
 **参数：**
@@ -77,7 +77,7 @@ async function retry<T>(fn: () => Promise<T>, retries?: number, delay?: number):
 
 **示例：**
 
-```ts
+```js
 import { retry } from '@/utils/request'
 
 const data = await retry(() => fetchWithTimeout('/api/user'), 3, 1000)
@@ -89,8 +89,8 @@ const data = await retry(() => fetchWithTimeout('/api/user'), 3, 1000)
 
 **说明：** 简单的节流函数
 
-```ts
-const throttle: <T extends (...args: unknown[]) => void>(fn: T, wait: number) => (...args: Parameters<T>) => void
+```js
+const throttle = (fn, wait) => {}
 ```
 
 **参数：**
@@ -104,7 +104,7 @@ const throttle: <T extends (...args: unknown[]) => void>(fn: T, wait: number) =>
 
 **示例：**
 
-```ts
+```js
 import { throttle } from '@/utils/request'
 
 const throttledScroll = throttle(() => console.log('scrolling'), 200)

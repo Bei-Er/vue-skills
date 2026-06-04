@@ -1,5 +1,7 @@
-<script setup lang="ts">
-defineProps<{ id: string }>()
+<script setup>
+defineProps({
+  id: { type: String, required: true }
+})
 </script>
 
 <template>

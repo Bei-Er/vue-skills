@@ -6,8 +6,8 @@
 
 **说明：** 获取相对时间描述（如"3 分钟前"）
 
-```ts
-function timeAgo(date: Date): string
+```js
+function timeAgo(date)
 ```
 
 **参数：**
@@ -20,7 +20,7 @@ function timeAgo(date: Date): string
 
 **示例：**
 
-```ts
+```js
 import { timeAgo } from '@/utils/date/relative'
 
 timeAgo(new Date(Date.now() - 60000))
