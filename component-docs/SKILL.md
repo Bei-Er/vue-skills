@@ -1,5 +1,5 @@
 ---
-name: components-document
+name: vue-skills:component-docs
 description: 当需要为 Vue 项目的组件目录生成 README.md 文档时使用。扫描 Vue 组件源文件，提取 Props、Events、Slots、Exposes，生成结构化的组件 API 文档。
 ---
 
@@ -155,10 +155,6 @@ export default {
 **输出文件命名：**
 - 子文件夹组件 → 文件夹名（如 `Button/` → `Button.md`）
 - 根目录组件 → 文件名去扩展名（如 `button.vue` → `button.md`）
-
-### 第 7 步：更新侧边栏
-
-调用 `update-docsify` 更新侧边栏。除非用户明确指定不需要更新。
 
 ## README 模板
 

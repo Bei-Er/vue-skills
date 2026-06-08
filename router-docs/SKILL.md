@@ -1,5 +1,5 @@
 ---
-name: routes-document
+name: vue-skills:router-docs
 description: 当需要为 Vue 项目的 vue-router 路由配置生成 README.md 文档时使用。扫描路由配置，生成简洁的路径-配置对照文档。
 ---
 
@@ -55,10 +55,6 @@ const routes = [...userRoutes]
 ### 第 4 步：生成 README.md
 
 输出到 `docs/routes/README.md`。
-
-### 第 5 步：更新侧边栏
-
-调用 `update-docsify` 更新侧边栏。除非用户明确指定不需要更新。
 
 ## README 模板
 

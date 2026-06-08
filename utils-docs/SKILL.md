@@ -1,5 +1,5 @@
 ---
-name: utils-document
+name: vue-skills:utils-docs
 description: 当需要为 Vue 项目的 utils 工具方法目录生成 README.md 文档时使用。扫描源文件，提取函数签名、JSDoc 注释、参数、返回值，生成结构化的 API 文档。
 ---
 
@@ -97,10 +97,6 @@ src/utils/
 - 文件夹内只有 `index.ts`（或 `index.js`）一个源文件 → 不显示文件名分组，直接列出函数
 - 文件夹内有多个源文件 → 按文件名（不含扩展名）分组，`index` 文件显示为 `index`
 - 根目录文件 → 无分组，直接列出函数
-
-### 第 7 步：更新侧边栏
-
-调用 `update-docsify` 更新侧边栏。除非用户明确指定不需要更新。
 
 ## README 模板
 

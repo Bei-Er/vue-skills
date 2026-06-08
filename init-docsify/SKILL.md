@@ -1,5 +1,5 @@
 ---
-name: init-docsify
+name: vue-skills:init-docsify
 description: 当需要为 Vue 项目初始化 docsify 文档站点时使用。生成 docs/ 目录、index.html 和 _sidebar.md，首页链接指向项目根目录的 README.md。
 ---
 
@@ -77,7 +77,7 @@ docs/
 
 **规则：**
 - 首页和路由为链接，首页指向项目根目录的 README.md，路由指向 `routes/` 目录（docsify 自动加载 `routes/README.md`）
-- 三个分类为纯文本标题（非链接），由各自的 `*-document` skill 在该目录下生成子页面后自动展开
+- 三个分类为纯文本标题（非链接），由各自的 `vue-skills:*-docs` skill 在该目录下生成子页面后自动展开
 - 顺序固定：首页 → 路由 → 组件 → Store → 工具方法
 
 ## 边界情况处理

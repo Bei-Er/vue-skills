@@ -1,5 +1,5 @@
 ---
-name: stores-document
+name: vue-skills:store-docs
 description: 当需要为 Vue 项目的状态管理层（Pinia / Vuex）生成 README.md 文档时使用。扫描 store 源文件，提取 State、Getters、Actions、Mutations 和依赖关系，生成结构化的 API 文档。
 ---
 
@@ -75,10 +75,6 @@ src/stores/
 **输出文件命名：**
 - 单 store 文件 → 文件名为 store ID（如 `defineStore('user', ...)` → `user.md`）
 - 单文件多 store → 文件名为源文件所在的文件夹名，根目录文件使用源文件名去扩展名（如 `index.js` → `index.md`）
-
-### 第 8 步：更新侧边栏
-
-调用 `update-docsify` 更新侧边栏。除非用户明确指定不需要更新。
 
 ## Pinia 提取规则
 

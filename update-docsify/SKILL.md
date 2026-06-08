@@ -1,6 +1,6 @@
 ---
-name: update-docsify
-description: 当 components-document、stores-document、utils-document 生成文档后，需要更新 docs/_sidebar.md 以包含实际文档链接时使用。扫描 docs/ 子目录中的 .md 文件，生成带子链接的侧边栏。
+name: vue-skills:update-docsify
+description: 当 vue-skills:component-docs、vue-skills:store-docs、vue-skills:utils-docs 生成文档后，需要更新 docs/_sidebar.md 以包含实际文档链接时使用。扫描 docs/ 子目录中的 .md 文件，生成带子链接的侧边栏。
 ---
 
 # 更新 Docsify 侧边栏
