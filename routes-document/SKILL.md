@@ -7,7 +7,7 @@ description: 当需要为 Vue 项目的 vue-router 路由配置生成 README.md 
 
 ## 概述
 
-扫描 Vue 项目的路由配置，在 router 目录下生成 README.md。每条路由显示完整路径、配置代码、组件 props。
+扫描 Vue 项目的路由配置，生成 `docs/routes/README.md`。每条路由显示完整路径、配置代码、组件 props。
 
 ## 适用场景
 
@@ -54,7 +54,11 @@ const routes = [...userRoutes]
 
 ### 第 4 步：生成 README.md
 
-输出到 `src/router/README.md`。
+输出到 `docs/routes/README.md`。
+
+### 第 5 步：更新侧边栏
+
+调用 `update-docsify` 更新侧边栏。除非用户明确指定不需要更新。
 
 ## README 模板
 

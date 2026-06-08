@@ -7,7 +7,7 @@ description: 当需要为 Vue 项目的状态管理层（Pinia / Vuex）生成 R
 
 ## 概述
 
-扫描 Vue 项目的状态管理目录，为每个 store 生成 README.md，与源文件同级。自动检测 Pinia / Vuex 类型，使用对应的提取规则和文档模板。
+扫描 Vue 项目的状态管理目录，为每个 store 在 `docs/stores/` 下生成独立的 .md 文件。自动检测 Pinia / Vuex 类型，使用对应的提取规则和文档模板。
 
 ## 适用场景
 
@@ -29,10 +29,27 @@ description: 当需要为 Vue 项目的状态管理层（Pinia / Vuex）生成 R
 
 在开始执行前，询问用户生成范围：
 
-- **全部生成** — 为所有 store 子文件夹生成/更新 README.md
+- **全部生成** — 为所有 store 在 `docs/stores/` 下生成/更新 .md 文件
 - **局部生成** — 用户指定具体 store 路径或名称，只处理指定的部分
 
-### 第 3 步：检测 store 类型
+### 第 3 步：发现源文件
+
+扫描目标目录下的所有 `.js`、`.mjs`、`.ts`、`.mts` 文件（包括子文件夹和根目录文件）：
+
+```
+src/stores/
+├── user/
+│   └── index.js
+├── index.js         ← 根目录文件，也扫描
+└── workflow.ts      ← 根目录文件，也扫描
+```
+
+**规则：**
+- 递归扫描所有 `.js`、`.mjs`、`.ts`、`.mts` 文件
+- 纯类型文件（`.d.ts`）→ 跳过
+- 纯 TS 类型文件（无 store 定义）→ 跳过
+
+### 第 4 步：检测 store 类型
 
 通过文件内容判断 Pinia / Vuex：
 
@@ -42,18 +59,26 @@ description: 当需要为 Vue 项目的状态管理层（Pinia / Vuex）生成 R
 | 文件内调用 | `defineStore('name', {...})` | `state: () => ({...})` + `mutations` |
 | Setup 写法 | `defineStore('name', () => {...})` | 不适用 |
 
-### 第 4 步：扫描源文件并提取元数据
+### 第 5 步：提取元数据
 
 根据检测到的类型，使用对应提取规则（见下方 Pinia 提取规则 / Vuex 提取规则）。
 
-### 第 5 步：分析 store 间依赖关系
+### 第 6 步：分析依赖关系
 
 - **Pinia：** 分析文件内 `useXxxStore()` 调用
 - **Vuex：** 分析 `dispatch('otherModule/action')`、`rootGetters`、`rootState` 引用
 
-### 第 6 步：生成 README.md
+### 第 7 步：生成文档
 
-使用对应模板（Pinia 模板 / Vuex 模板），输出到每个 store 子文件夹内。
+使用对应模板（Pinia 模板 / Vuex 模板），输出到 `docs/stores/`。
+
+**输出文件命名：**
+- 单 store 文件 → 文件名为 store ID（如 `defineStore('user', ...)` → `user.md`）
+- 单文件多 store → 文件名为源文件所在的文件夹名，根目录文件使用源文件名去扩展名（如 `index.js` → `index.md`）
+
+### 第 8 步：更新侧边栏
+
+调用 `update-docsify` 更新侧边栏。除非用户明确指定不需要更新。
 
 ## Pinia 提取规则
 
@@ -277,7 +302,7 @@ Store 说明
 |------|----------|
 | Pinia Setup 中 `$` 前缀的 ref | 正常提取，文档中不显示 `$` |
 | `storeToRefs` 引用的其他 store | 识别为依赖，不将跨 store 的 ref 重复文档化 |
-| Vuex `modules` 嵌套 | 每个模块单独生成 README |
+| Vuex `modules` 嵌套 | 每个模块单独生成 .md 文件 |
 | 持久化插件配置 | 在文档末尾标注持久化配置 |
 | 纯 TS 类型文件（无 store 定义） | 跳过 |
 | JS 文件无类型注解 | 类型从 JSDoc `@type` 提取，都没有则显示 `-` |
@@ -295,4 +320,4 @@ Store 说明
 | 把 Vuex 的 `state()` 返回值当普通对象 | 识别为 State 定义 |
 | 依赖节漏掉间接引用 | 分析 action 体内的 dispatch/useStore 调用 |
 | 混淆 Pinia 和 Vuex 模板 | 先检测类型再选模板 |
-| 每个文件生成一个 README | 单文件多 store 生成一个 README，用二级标题分隔 |
+| 每个文件生成一个 .md | 单文件多 store 生成一个 .md，用二级标题分隔 |

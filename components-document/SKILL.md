@@ -7,7 +7,7 @@ description: 当需要为 Vue 项目的组件目录生成 README.md 文档时使
 
 ## 概述
 
-扫描 Vue 项目的 components 目录，为每个子目录中的组件生成 README.md，与组件源文件同级。每个 README 包含该组件的 Props、Events、Slots、Exposes 和使用示例。
+扫描 Vue 项目的 components 目录，为每个组件在 `docs/components/` 下生成独立的 .md 文件。每个文件包含该组件的 Props、Events、Slots、Exposes 和使用示例。
 
 ## 适用场景
 
@@ -25,28 +25,27 @@ description: 当需要为 Vue 项目的组件目录生成 README.md 文档时使
 
 在开始执行前，询问用户生成范围：
 
-- **全部生成** — 为 components 下所有子文件夹生成/更新 README.md
+- **全部生成** — 为 components 下所有组件生成/更新文档
 - **局部生成** — 用户指定具体组件路径或名称，只处理指定的部分
 
-### 第 3 步：扫描目录结构
+### 第 3 步：发现组件文件
 
-遍历 components 下的所有子文件夹，识别组件文件。目录结构示例：
+遍历 components 目录，识别 `.vue` 组件文件。
 
 ```
 src/components/
 ├── Button/
-│   ├── index.vue
-│   └── README.md    ← 为该组件生成
+│   └── index.vue
 ├── Dialog/
-│   ├── Dialog.vue
-│   └── README.md    ← 为该组件生成
-└── common.ts        ← 散落在根目录的文件，忽略
+│   └── Dialog.vue
+├── button.vue       ← 根目录的 .vue 文件，也处理
+└── common.ts        ← 非 .vue 文件，忽略
 ```
 
 **规则：**
-- 每个子文件夹 → 扫描其中的 `.vue` 文件，生成 README.md
-- 文件夹内有多个 `.vue` 文件时，只处理名为 `index.vue` 或与文件夹同名的 `.vue` 文件
-- components 根目录下的散落文件 → 忽略
+- 子文件夹 → 只处理 `index.vue` 或与文件夹同名的 `.vue` 文件
+- 根目录 → 处理所有 `.vue` 文件
+- 非 `.vue` 文件 → 忽略
 
 ### 第 4 步：扫描组件源文件
 
@@ -149,9 +148,17 @@ export default {
 - Exposes 从 `defineExpose` 的对象键提取；Options API 的 methods 作为 Exposes
 - 组件说明从 JSDoc、组件名、Props 用途、模板结构等上下文综合推断
 
-### 第 6 步：生成 README.md
+### 第 6 步：生成文档
 
-使用下方模板，输出到 **组件所在文件夹内**，与 `.vue` 文件同级。
+使用下方模板，输出到 `docs/components/`。
+
+**输出文件命名：**
+- 子文件夹组件 → 文件夹名（如 `Button/` → `Button.md`）
+- 根目录组件 → 文件名去扩展名（如 `button.vue` → `button.md`）
+
+### 第 7 步：更新侧边栏
+
+调用 `update-docsify` 更新侧边栏。除非用户明确指定不需要更新。
 
 ## README 模板
 
@@ -235,5 +242,5 @@ export default {
 | 把 methods 当作 Exposes（setup 组件） | setup 组件只有 `defineExpose` 的内容才是 Exposes |
 | 忽略 default slot | 无 `name` 的 `<slot>` 是 default 插槽 |
 | 把路由 props 当作组件 props | 只处理组件文件的 `defineProps` 或 `props` 选项 |
-| 把 README 生成到项目根目录 | 放在组件目录内 |
+| 把文档生成到 src/components/ 内 | 放在 `docs/components/` 目录内 |
 | 对每个事件都写 `this.$emit` 参数 | 只在 emits 声明处提取，从调用处补充参数类型 |
