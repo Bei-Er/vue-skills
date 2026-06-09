@@ -1,13 +1,13 @@
 ---
 name: vue-skills:update-docsify
-description: 当 vue-skills:component-docs、vue-skills:store-docs、vue-skills:utils-docs 生成文档后，需要更新 docs/_sidebar.md 以包含实际文档链接时使用。扫描 docs/ 子目录中的 .md 文件，生成带子链接的侧边栏。
+description: 当 vue-skills:component-docs、vue-skills:directive-docs、vue-skills:store-docs、vue-skills:util-docs 生成文档后，需要更新 docs/_sidebar.md 以包含实际文档链接时使用。扫描 docs/ 子目录中的 .md 文件，生成带子链接的侧边栏。
 ---
 
 # 更新 Docsify 侧边栏
 
 ## 概述
 
-扫描 `docs/` 下三个子目录（components、stores、utils）中已生成的 `.md` 文件，重新生成 `docs/_sidebar.md`。路由为固定链接，不参与扫描。
+扫描 `docs/` 下四个子目录（components、directives、stores、utils）中已生成的 `.md` 文件，重新生成 `docs/_sidebar.md`。路由为固定链接，不参与扫描。
 
 ## 适用场景
 
@@ -18,11 +18,12 @@ description: 当 vue-skills:component-docs、vue-skills:store-docs、vue-skills:
 
 ### 第 1 步：扫描 docs/ 目录
 
-按固定顺序扫描三个子目录，收集每个目录下的 `.md` 文件：
+按固定顺序扫描四个子目录，收集每个目录下的 `.md` 文件：
 
 | 目录 | 分类名 |
 |------|--------|
 | `docs/components/` | 组件 |
+| `docs/directives/` | 自定义指令 |
 | `docs/stores/` | Store |
 | `docs/utils/` | 工具方法 |
 
@@ -37,7 +38,7 @@ description: 当 vue-skills:component-docs、vue-skills:store-docs、vue-skills:
 
 | 规则 | 说明 |
 |------|------|
-| 显示名 | 读取 .md 文件的第一个 `#` 标题 |
+| 显示名 | 读取 .md 文件的第一个 `#` 标题，保留引用次数 |
 | 链接路径 | 相对于 `docs/` 的路径 |
 | 缩进 | 2 空格 |
 
@@ -50,22 +51,25 @@ description: 当 vue-skills:component-docs、vue-skills:store-docs、vue-skills:
 - [路由](routes/)
 
 - 组件
-  - [按钮组件](components/Button.md)
-  - [对话框](components/Dialog.md)
+  - [按钮组件(3)](components/Button.md)
+  - [对话框(2)](components/Dialog.md)
+- 自定义指令
+  - [自动聚焦(1)](directives/focus.md)
+  - [权限控制(4)](directives/permission.md)
 - Store
-  - [用户管理](stores/user.md)
-  - [购物车](stores/cart.md)
+  - [用户管理(5)](stores/user.md)
+  - [购物车(2)](stores/cart.md)
 - 工具方法
-  - [格式化工具](utils/format.md)
-  - [验证工具](utils/validate.md)
+  - [格式化工具(6)](utils/format.md)
+  - [验证工具(3)](utils/validate.md)
 ````
 
 **格式规则：**
 - 前两行固定为首页和路由链接
 - 路由链接后空一行
-- 三个分类按固定顺序排列，分类之间不空行
+- 四个分类按固定顺序排列，分类之间不空行
 - 空分类只写 `- 分类名`，无子链接
-- 显示名为对应 .md 文件中的第一个 `#` 标题内容
+- 显示名为对应 .md 文件中的第一个 `#` 标题内容（含引用次数）
 - 直接覆盖写入，不合并旧内容
 
 ## 边界情况处理

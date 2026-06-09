@@ -17,7 +17,7 @@ export const useCounterStore = defineStore('counter', () => {
 
   /**
    * 增加计数
-   * @param n 增加的值，默认使用 step
+   * @param {number} [n] 增加的值，默认使用 step
    */
   function increment(n) {
     count.value += n ?? step.value
@@ -30,7 +30,7 @@ export const useCounterStore = defineStore('counter', () => {
 
   /**
    * 重置计数器
-   * @param value 重置到的值
+   * @param {number} [value=0] 重置到的值
    */
   async function reset(value = 0) {
     count.value = value

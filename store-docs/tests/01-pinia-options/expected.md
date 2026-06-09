@@ -1,4 +1,4 @@
-# user
+# 用户管理(0)
 
 用户状态管理
 
@@ -12,12 +12,26 @@
 | token | `string` | `''` | 登录 token |
 | isLoggedIn | `boolean` | `false` | 是否已登录 |
 
+**示例：**
+
+```js
+const store = useUserStore()
+console.log(store.token) // => ''
+```
+
 ## Getters
 
 | 名称 | 参数 | 返回类型 | 说明 |
 |------|------|----------|------|
 | displayName | — | `string` | 用户显示名称 |
 | isVip | — | `boolean` | 是否为 VIP 用户 |
+
+**示例：**
+
+```js
+const store = useUserStore()
+console.log(store.displayName) // => '未登录'
+```
 
 ## Actions
 
@@ -26,3 +40,10 @@
 | login | `(username: string, password: string)` | `Promise<void>` | 登录 |
 | logout | — | `void` | 退出登录 |
 | updateUserInfo | `(info: Partial<UserInfo>)` | `void` | 更新用户信息 |
+
+**示例：**
+
+```js
+const store = useUserStore()
+await store.login('admin', '123456')
+```

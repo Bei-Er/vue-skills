@@ -23,8 +23,8 @@ export const useUserStore = defineStore('user', {
   actions: {
     /**
      * 登录
-     * @param username 用户名
-     * @param password 密码
+     * @param {string} username 用户名
+     * @param {string} password 密码
      */
     async login(username, password) {
       // 登录逻辑
@@ -37,7 +37,7 @@ export const useUserStore = defineStore('user', {
     },
     /**
      * 更新用户信息
-     * @param info 新的用户信息
+     * @param {Partial<UserInfo>} info 新的用户信息
      */
     updateUserInfo(info) {
       if (this.userInfo) {
