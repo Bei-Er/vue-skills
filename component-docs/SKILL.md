@@ -159,9 +159,9 @@ export default {
 ## README 模板
 
 ````markdown
-# ComponentName
+# 按钮组件
 
-组件说明（从 JSDoc、组件名、Props、模板结构等上下文综合推断）
+（标题从组件名、JSDoc、Props 用途、模板结构等上下文推断中文名称）
 
 ---
 
@@ -204,8 +204,8 @@ export default {
 
 ### 模板规则
 
-- 组件名从文件名或 `name` 选项推断，去除 `.vue` 扩展名，使用 PascalCase
-- 组件说明从 JSDoc、组件名、Props 用途、模板结构等上下文综合推断
+- 标题为从组件名、JSDoc、Props 用途、模板结构等上下文推断的中文名称（如 Button → 按钮组件）
+- 组件说明紧跟标题下方，简要描述组件用途
 - **Props** 表格按源码中定义的顺序排列
 - **Events** 表格中，无参数的事件参数列显示 `—`
 - **Slots** 表格中，无作用域参数的显示 `—`

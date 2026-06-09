@@ -167,9 +167,9 @@ const store = new Vuex.Store({
 ## Pinia README 模板
 
 ````markdown
-# {storeName}
+# 用户管理
 
-Store 说明（从 JSDoc、store 名、用途推断）
+（标题从 store 名、JSDoc、用途推断中文名称）
 
 ---
 
@@ -179,17 +179,38 @@ Store 说明（从 JSDoc、store 名、用途推断）
 |------|------|--------|------|
 | name | `string` | `''` | 用户名 |
 
+**示例：**
+
+```js
+const store = useUserStore()
+console.log(store.name) // => ''
+```
+
 ## Getters
 
 | 名称 | 参数 | 返回类型 | 说明 |
 |------|------|----------|------|
 | displayName | — | `string` | 用户显示名称 |
 
+**示例：**
+
+```js
+const store = useUserStore()
+console.log(store.displayName) // => 用户显示名称
+```
+
 ## Actions
 
 | 名称 | 参数 | 返回类型 | 说明 |
 |------|------|----------|------|
 | login | `(username: string, password: string)` | `Promise<void>` | 登录 |
+
+**示例：**
+
+```js
+const store = useUserStore()
+await store.login('admin', '123456')
+```
 
 ---
 
@@ -199,6 +220,8 @@ Store 说明（从 JSDoc、store 名、用途推断）
 ````
 
 **模板规则：**
+- 标题为从 store 名、JSDoc、用途推断的中文名称
+- 每个节（State、Getters、Actions）的表格后附带 **示例：** 代码块，展示典型用法
 - 无对应 API 的节直接省略（如无 Getters 则省略 Getters 节）
 - Getters 无参数时显示 `—`
 - Actions 无参数时显示 `—`
@@ -210,11 +233,13 @@ Store 说明（从 JSDoc、store 名、用途推断）
 当同一文件包含多个 `defineStore` 时，使用二级标题分隔：
 
 ````markdown
-# {目录名}
+# 状态管理
+
+（标题从目录名或文件名推断中文名称）
 
 ---
 
-## useAppStore
+## useAppStore — 应用状态
 
 Store 说明
 
@@ -222,15 +247,29 @@ Store 说明
 
 | 属性 | 类型 | 默认值 | 说明 |
 |------|------|--------|------|
+
+**示例：**
+
+```js
+const store = useAppStore()
+console.log(store.xxx) // => defaultValue
+```
 
 ### Actions
 
 | 名称 | 参数 | 返回类型 | 说明 |
 |------|------|----------|------|
 
+**示例：**
+
+```js
+const store = useAppStore()
+await store.actionName()
+```
+
 ---
 
-## useNotificationStore
+## useNotificationStore — 通知状态
 
 Store 说明
 
@@ -238,16 +277,23 @@ Store 说明
 
 | 属性 | 类型 | 默认值 | 说明 |
 |------|------|--------|------|
+
+**示例：**
+
+```js
+const store = useNotificationStore()
+console.log(store.xxx) // => defaultValue
+```
 ````
 
-每个 store 内部使用三级标题（`###`）代替二级标题。
+每个 store 内部使用三级标题（`###`）代替二级标题，二级标题格式为 `## useXxxStore — 中文名称`。每个节的表格后同样附带 **示例：** 代码块。
 
 ## Vuex README 模板
 
 ````markdown
-# {moduleName}
+# 用户模块
 
-Store 说明
+（标题从模块名、JSDoc、用途推断中文名称）
 
 **命名空间：** `user/`
 
@@ -259,11 +305,23 @@ Store 说明
 |------|------|--------|------|
 | name | `string` | `''` | 用户名 |
 
+**示例：**
+
+```js
+const name = store.state.user.name
+```
+
 ## Getters
 
 | 名称 | 参数 | 返回类型 | 说明 |
 |------|------|----------|------|
 | displayName | — | `string` | 用户显示名称 |
+
+**示例：**
+
+```js
+const name = store.getters['user/displayName']
+```
 
 ## Actions
 
@@ -271,11 +329,23 @@ Store 说明
 |------|------|----------|------|
 | login | `(credentials: Object)` | `Promise` | 用户登录 |
 
+**示例：**
+
+```js
+await store.dispatch('user/login', { username: 'admin', password: '123456' })
+```
+
 ## Mutations
 
 | 名称 | 载荷类型 | 说明 |
 |------|----------|------|
 | SET_NAME | `string` | 设置用户名 |
+
+**示例：**
+
+```js
+store.commit('user/SET_NAME', '新用户名')
+```
 
 ---
 
@@ -285,12 +355,14 @@ Store 说明
 ````
 
 **模板规则：**
+- 标题为从模块名、JSDoc、用途推断的中文名称
+- 每个节（State、Getters、Actions、Mutations）的表格后附带 **示例：** 代码块
 - `namespaced: true` 的模块在标题下方标注 `**命名空间：**` `xxx/`
 - 无命名空间时省略命名空间行
 - 无对应 API 的节直接省略
 - Mutations 无载荷时显示 `—`
 - 依赖节：分析 `rootState`、`rootGetters`、`dispatch('module/action')` 引用；无依赖时省略此节
-- 单文件 Vuex Store（非模块化）标题使用 `store`
+- 单文件 Vuex Store（非模块化）标题使用中文推断名称
 
 ## 边界情况处理
 

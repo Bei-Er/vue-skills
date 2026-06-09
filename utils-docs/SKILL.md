@@ -101,7 +101,9 @@ src/utils/
 ## README 模板
 
 ````markdown
-# {目录名}
+# 中文名称
+
+（标题从目录名、函数用途推断中文名称）
 
 ---
 
@@ -113,15 +115,6 @@ src/utils/
 function functionName1(param1, param2)
 ```
 
-**参数：**
-
-| 参数 | 类型 | 必填 | 默认值 | 说明 |
-|------|------|------|--------|------|
-| param1 | `string` | 是 | - | 参数说明 |
-| param2 | `number` | 否 | `0` | 参数说明 |
-
-**返回值：** `boolean` — 返回值说明
-
 **示例：**
 
 ```js
@@ -130,6 +123,15 @@ import { functionName1 } from '@/utils/format'
 const result = functionName1('hello', 42)
 // => true
 ```
+
+**参数：**
+
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| param1 | `string` | 是 | - | 参数说明 |
+| param2 | `number` | 否 | `0` | 参数说明 |
+
+**返回值：** `boolean` — 返回值说明
 
 ---
 ````

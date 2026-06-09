@@ -37,7 +37,7 @@ description: 当 vue-skills:component-docs、vue-skills:store-docs、vue-skills:
 
 | 规则 | 说明 |
 |------|------|
-| 显示名 | 文件名去扩展名 |
+| 显示名 | 读取 .md 文件的第一个 `#` 标题 |
 | 链接路径 | 相对于 `docs/` 的路径 |
 | 缩进 | 2 空格 |
 
@@ -50,14 +50,14 @@ description: 当 vue-skills:component-docs、vue-skills:store-docs、vue-skills:
 - [路由](routes/)
 
 - 组件
-  - [Button](components/Button.md)
-  - [Dialog](components/Dialog.md)
+  - [按钮组件](components/Button.md)
+  - [对话框](components/Dialog.md)
 - Store
-  - [user](stores/user.md)
-  - [cart](stores/cart.md)
+  - [用户管理](stores/user.md)
+  - [购物车](stores/cart.md)
 - 工具方法
-  - [format](utils/format.md)
-  - [validate](utils/validate.md)
+  - [格式化工具](utils/format.md)
+  - [验证工具](utils/validate.md)
 ````
 
 **格式规则：**
@@ -65,7 +65,7 @@ description: 当 vue-skills:component-docs、vue-skills:store-docs、vue-skills:
 - 路由链接后空一行
 - 三个分类按固定顺序排列，分类之间不空行
 - 空分类只写 `- 分类名`，无子链接
-- 显示名为文件名去扩展名（如 `Button.md` → `Button`）
+- 显示名为对应 .md 文件中的第一个 `#` 标题内容
 - 直接覆盖写入，不合并旧内容
 
 ## 边界情况处理
