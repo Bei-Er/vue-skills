@@ -1,3 +1,3 @@
-# validate(2)
+# validate
 
 验证工具。

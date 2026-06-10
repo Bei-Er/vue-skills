@@ -1,3 +1,3 @@
-# Dialog(2)
+# Dialog
 
 对话框组件。

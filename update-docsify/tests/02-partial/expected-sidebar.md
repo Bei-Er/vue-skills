@@ -2,7 +2,7 @@
 - [路由](routes/)
 
 - 组件
-  - [Button(3)](components/Button.md)
+  - [Button](components/Button.md)
 - Store
-  - [user(1)](stores/user.md)
+  - [user](stores/user.md)
 - 工具方法

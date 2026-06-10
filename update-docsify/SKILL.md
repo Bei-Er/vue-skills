@@ -38,7 +38,7 @@ description: 当 vue-skills:component-docs、vue-skills:directive-docs、vue-ski
 
 | 规则 | 说明 |
 |------|------|
-| 显示名 | 读取 .md 文件的第一个 `#` 标题，保留引用次数 |
+| 显示名 | 读取 .md 文件的第一个 `#` 标题 |
 | 链接路径 | 相对于 `docs/` 的路径 |
 | 缩进 | 2 空格 |
 
@@ -51,17 +51,17 @@ description: 当 vue-skills:component-docs、vue-skills:directive-docs、vue-ski
 - [路由](routes/)
 
 - 组件
-  - [按钮组件(3)](components/Button.md)
-  - [对话框(2)](components/Dialog.md)
+  - [按钮组件](components/Button.md)
+  - [对话框](components/Dialog.md)
 - 自定义指令
-  - [自动聚焦(1)](directives/focus.md)
-  - [权限控制(4)](directives/permission.md)
+  - [自动聚焦](directives/focus.md)
+  - [权限控制](directives/permission.md)
 - Store
-  - [用户管理(5)](stores/user.md)
-  - [购物车(2)](stores/cart.md)
+  - [用户管理](stores/user.md)
+  - [购物车](stores/cart.md)
 - 工具方法
-  - [格式化工具(6)](utils/format.md)
-  - [验证工具(3)](utils/validate.md)
+  - [格式化工具](utils/format.md)
+  - [验证工具](utils/validate.md)
 ````
 
 **格式规则：**
@@ -69,7 +69,7 @@ description: 当 vue-skills:component-docs、vue-skills:directive-docs、vue-ski
 - 路由链接后空一行
 - 四个分类按固定顺序排列，分类之间不空行
 - 空分类只写 `- 分类名`，无子链接
-- 显示名为对应 .md 文件中的第一个 `#` 标题内容（含引用次数）
+- 显示名为对应 .md 文件中的第一个 `#` 标题内容
 - 直接覆盖写入，不合并旧内容
 
 ## 边界情况处理

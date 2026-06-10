@@ -68,17 +68,7 @@ src/stores/
 - **Pinia：** 分析文件内 `useXxxStore()` 调用
 - **Vuex：** 分析 `dispatch('otherModule/action')`、`rootGetters`、`rootState` 引用
 
-### 第 7 步：统计 store 引用次数
-
-在 `src/` 目录下（排除 store 自身文件）搜索 import 语句，统计引用次数。
-
-**搜索规则：**
-- 使用 store 的导出名（如 `useUserStore`）作为搜索关键字
-- 匹配 `import { useXxxStore }` 和 `import useXxxStore` 两种形式
-- 排除 store 源文件本身
-- 只搜索 `src/` 目录下的 `.vue`、`.js`、`.ts` 文件
-
-### 第 8 步：生成文档
+### 第 7 步：生成文档
 
 使用对应模板（Pinia 模板 / Vuex 模板），输出到 `docs/stores/`。
 
@@ -177,9 +167,9 @@ const store = new Vuex.Store({
 ## Pinia README 模板
 
 ````markdown
-# 用户管理(5)
+# 用户管理
 
-（标题格式：中文名称(引用次数)，从 store 名、JSDoc、用途推断中文名称）
+（标题格式：中文名称，从 store 名、JSDoc、用途推断中文名称）
 
 ---
 
@@ -230,7 +220,7 @@ await store.login('admin', '123456')
 ````
 
 **模板规则：**
-- 标题格式为 `中文名称(引用次数)`，从 store 名、JSDoc、用途推断中文名称
+- 标题格式为 `中文名称`，从 store 名、JSDoc、用途推断中文名称
 - 每个节（State、Getters、Actions）的表格后附带 **示例：** 代码块，展示典型用法
 - 无对应 API 的节直接省略（如无 Getters 则省略 Getters 节）
 - Getters 无参数时显示 `—`
@@ -245,7 +235,7 @@ await store.login('admin', '123456')
 ````markdown
 # 状态管理
 
-（标题从目录名或文件名推断中文名称，多 store 文件不显示引用次数）
+（标题从目录名或文件名推断中文名称）
 
 ---
 
@@ -296,14 +286,14 @@ console.log(store.xxx) // => defaultValue
 ```
 ````
 
-每个 store 内部使用三级标题（`###`）代替二级标题，二级标题格式为 `## useXxxStore — 中文名称(引用次数)`。每个节的表格后同样附带 **示例：** 代码块。
+每个 store 内部使用三级标题（`###`）代替二级标题，二级标题格式为 `## useXxxStore — 中文名称`。每个节的表格后同样附带 **示例：** 代码块。
 
 ## Vuex README 模板
 
 ````markdown
-# 用户模块(3)
+# 用户模块
 
-（标题格式：中文名称(引用次数)，从模块名、JSDoc、用途推断中文名称）
+（标题格式：中文名称，从模块名、JSDoc、用途推断中文名称）
 
 **命名空间：** `user/`
 
@@ -365,7 +355,7 @@ store.commit('user/SET_NAME', '新用户名')
 ````
 
 **模板规则：**
-- 标题格式为 `中文名称(引用次数)`，从模块名、JSDoc、用途推断中文名称
+- 标题格式为 `中文名称`，从模块名、JSDoc、用途推断中文名称
 - 每个节（State、Getters、Actions、Mutations）的表格后附带 **示例：** 代码块
 - `namespaced: true` 的模块在标题下方标注 `**命名空间：**` `xxx/`
 - 无命名空间时省略命名空间行

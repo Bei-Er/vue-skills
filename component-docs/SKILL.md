@@ -148,17 +148,7 @@ export default {
 - Exposes 从 `defineExpose` 的对象键提取；Options API 的 methods 作为 Exposes
 - 组件说明从 JSDoc、组件名、Props 用途、模板结构等上下文综合推断
 
-### 第 6 步：统计组件引用次数
-
-在 `src/` 目录下（排除组件自身文件）搜索 import 语句，统计引用次数。
-
-**搜索规则：**
-- 使用组件的导出名（如 `Button`、`DataList`）作为搜索关键字
-- 匹配 `import ComponentName from` 和 `import { ComponentName }` 两种形式
-- 排除组件源文件本身
-- 只搜索 `src/` 目录下的 `.vue`、`.js`、`.ts`、`.jsx`、`.tsx` 文件
-
-### 第 7 步：生成文档
+### 第 6 步：生成文档
 
 使用下方模板，输出到 `docs/components/`。
 
@@ -169,9 +159,9 @@ export default {
 ## README 模板
 
 ````markdown
-# 按钮组件(3)
+# 按钮组件
 
-（标题格式：中文名称(引用次数)，从组件名、JSDoc、Props 用途、模板结构等上下文推断中文名称）
+（标题格式：中文名称，从组件名、JSDoc、Props 用途、模板结构等上下文推断中文名称）
 
 ---
 
@@ -214,7 +204,7 @@ export default {
 
 ### 模板规则
 
-- 标题格式为 `中文名称(引用次数)`，从组件名、JSDoc、Props 用途、模板结构等上下文推断中文名称（如 Button → 按钮组件(3)）
+- 标题格式为 `中文名称`，从组件名、JSDoc、Props 用途、模板结构等上下文推断中文名称（如 Button → 按钮组件）
 - 组件说明紧跟标题下方，简要描述组件用途
 - **Props** 表格按源码中定义的顺序排列
 - **Events** 表格中，无参数的事件参数列显示 `—`

@@ -2,7 +2,7 @@
 
 ---
 
-## useAppStore — 应用状态(0)
+## useAppStore — 应用状态
 
 应用全局状态
 
@@ -35,7 +35,7 @@ store.toggleSidebar()
 
 ---
 
-## useNotificationStore — 通知状态(0)
+## useNotificationStore — 通知状态
 
 通知状态
 

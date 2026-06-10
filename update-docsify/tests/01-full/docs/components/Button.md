@@ -1,3 +1,3 @@
-# Button(3)
+# Button
 
 按钮组件。

@@ -1,3 +1,3 @@
-# user(1)
+# user
 
 用户 Store。

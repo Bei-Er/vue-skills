@@ -1,4 +1,4 @@
-# Cookie 管理(0)
+# Cookie 管理
 
 ---
 

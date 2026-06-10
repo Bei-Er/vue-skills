@@ -1,3 +1,3 @@
-# cart(5)
+# cart
 
 购物车 Store。

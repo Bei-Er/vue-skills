@@ -2,11 +2,11 @@
 - [路由](routes/)
 
 - 组件
-  - [Button(3)](components/Button.md)
-  - [Dialog(2)](components/Dialog.md)
+  - [Button](components/Button.md)
+  - [Dialog](components/Dialog.md)
 - Store
-  - [cart(5)](stores/cart.md)
-  - [user(1)](stores/user.md)
+  - [cart](stores/cart.md)
+  - [user](stores/user.md)
 - 工具方法
-  - [format(4)](utils/format.md)
-  - [validate(2)](utils/validate.md)
+  - [format](utils/format.md)
+  - [validate](utils/validate.md)
